@@ -1,7 +1,7 @@
 ﻿#define _USE_MATH_DEFINES
-#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <math.h>
+#include <stdlib.h>
 
 /**
 * @brief Рассчитывает объём шара
@@ -18,37 +18,46 @@ double get_V(double R);
 double get_S(double R);
 
 /**
+* @brief Функция проверки введенных значений.
+* @return возвращает значение, если выполнено успешно, или ошибку, если иначе
+*/
+double get_input()
+{
+	double input;
+	if (scanf_s("%lf", &input) != 1 || (input <= 0))
+	{
+		printf("Input error");
+		exit(EXIT_FAILURE);
+	}
+	return input;
+}
+
+/**
 * @brief Точка входа в програsмму
 * @return 0 в случае успеха
 */
 int main() {
 	double R;
 	int vybor;
-	printf("Введите радиус : ");
-	scanf_s("%lf", &R);
-	
-	if ((R <= 0) || (scanf("%lf", &R) != 1)) {
-		printf("Радиус должен быть положительным числом\n");
-		printf("Введите радиус: ");
-		scanf_s("%lf", &R);
-	}
+	printf("Enter radius: ");
+	R = get_input();
 
-	printf("Выберите какую операцию хотите произвести:\n");
-	printf("1. Объем шара\n");
-	printf("2. Площадь поверхности шара\n");
+	printf("Select what operation you want to perform:\n");
+	printf("1. Ball volume\n");
+	printf("2. Sphere surface area\n");
 	printf("(1/2)? ");
 	scanf_s("%d", &vybor);
 
 	if ((vybor != 1) && (vybor != 2))
 	{
-		printf("Недопустимое значение. Введите 1 или 2: ");
+		printf("Invalid value. Enter 1 or 2: ");
 		scanf_s("%d", &vybor);
 	}
 	if (vybor == 2) {
-		printf("Площадь поверхности шара равна: %f \n", get_S(R));
+		printf("The surface area of ​​the ball is %f \n", get_S(R));
 	}
 	if (vybor == 1) {
-		printf("Объём шара равен: %f \n", get_V(R));
+		printf("The volume of the ball is %f \n", get_V(R));
 	}
 	
 	return 0;
