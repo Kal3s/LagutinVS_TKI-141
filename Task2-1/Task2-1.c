@@ -64,7 +64,7 @@ int main() {
 	vybor = get_vybor();
 	
 	if (vybor == 2) {
-		printf("The surface area of ​​the ball is %f \n", get_S(R));
+		printf("The surface area of the ball is %f \n", get_S(R));
 	}
 	if (vybor == 1) {
 		printf("The volume of the ball is %f \n", get_V(R));
