@@ -19,7 +19,7 @@ double get_S(double R);
 
 /**
 * @brief Функция проверки введенных значений.
-* @return возвращает значение, если выполнено успешно, или ошибку, если иначе
+* @return Возвращает значение, если выполнено успешно, или ошибку, если иначе
 */
 double get_input()
 {
@@ -30,6 +30,21 @@ double get_input()
 		exit(EXIT_FAILURE);
 	}
 	return input;
+}
+
+/**
+* @brief Функция проверки правельности выбора
+* @return Возвращает значение выбора, если ошибка, проверяет заново
+*/
+int get_vybor() {
+	int vybor;
+	scanf_s("%d", &vybor);
+	if ((vybor != 1) && (vybor != 2))
+	{
+		printf("Invalid value. Enter 1 or 2: ");
+		vybor = get_vybor();
+	}
+	return vybor;
 }
 
 /**
@@ -46,13 +61,8 @@ int main() {
 	printf("1. Ball volume\n");
 	printf("2. Sphere surface area\n");
 	printf("(1/2)? ");
-	scanf_s("%d", &vybor);
-
-	if ((vybor != 1) && (vybor != 2))
-	{
-		printf("Invalid value. Enter 1 or 2: ");
-		scanf_s("%d", &vybor);
-	}
+	vybor = get_vybor();
+	
 	if (vybor == 2) {
 		printf("The surface area of ​​the ball is %f \n", get_S(R));
 	}
