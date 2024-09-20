@@ -21,6 +21,23 @@ double get_S(double R);
 * @brief Функция проверки введенных значений.
 * @return Возвращает значение, если выполнено успешно, или ошибку, если иначе
 */
+double get_input();
+
+
+/**
+* @brief Точка входа в програsмму
+* @return 0 в случае успеха
+*/
+int main() {
+	printf("Enter radius: ");
+	double R = get_input();
+	
+	printf("The surface area of the ball is %f \n", get_S(R));
+	printf("The volume of the ball is %f \n", get_V(R));
+	
+	return 0;
+}
+
 double get_input()
 {
 	double input;
@@ -32,51 +49,10 @@ double get_input()
 	return input;
 }
 
-/**
-* @brief Функция проверки правельности выбора
-* @return Возвращает значение выбора, если ошибка, проверяет заново
-*/
-int get_vybor() {
-	int vybor;
-	scanf_s("%d", &vybor);
-	if ((vybor != 1) && (vybor != 2))
-	{
-		printf("Invalid value. Enter 1 or 2: ");
-		vybor = get_vybor();
-	}
-	return vybor;
-}
-
-/**
-* @brief Точка входа в програsмму
-* @return 0 в случае успеха
-*/
-int main() {
-	double R;
-	int vybor;
-	printf("Enter radius: ");
-	R = get_input();
-
-	printf("Select what operation you want to perform:\n");
-	printf("1. Ball volume\n");
-	printf("2. Sphere surface area\n");
-	printf("(1/2)? ");
-	vybor = get_vybor();
-	
-	if (vybor == 2) {
-		printf("The surface area of the ball is %f \n", get_S(R));
-	}
-	if (vybor == 1) {
-		printf("The volume of the ball is %f \n", get_V(R));
-	}
-	
-	return 0;
-}
-
 double get_V(double R) {
-	return (4  * M_PI * (R * R * R))/ 3;
+	return (4  * M_PI * pow(R,3))/ 3;
 }
 
 double get_S(double R) {
-	return (4 * M_PI * R * R);
+	return (4 * M_PI * pow(R,2));
 }
