@@ -7,7 +7,7 @@
 * @param n Коэффицент
 * @return Ширина прямоугольника.
 */
-double get_width(const double length, const double n);
+double get_Width(const double length, const double n);
 
 /**
 * @brief Рассчитывает площадь прямоугольника.
@@ -29,7 +29,7 @@ double get_Perimetr(const double length, const double width);
 * @brief Считывает вещественное число.
 * @return Возвращает вещественное число.
 */
-double get_input();
+double get_Input();
 
 /**
 * @brief Точка входа в программу
@@ -38,17 +38,17 @@ double get_input();
 int main(void) {
 	setlocale(LC_ALL, "Russian");
 	puts("Введите длину прямоугольника.");
-	double length = get_input();
+	double length = get_Input();
 	puts("Введите коэффицент.");
-	double n = get_input();
-	double width = get_width(length, n);
+	double n = get_Input();
+	double width = get_Width(length, n);
 	printf_s("Площадь прямоугольника %lf", get_Area(length, width));
 	printf_s("\nПериметр прямоугольника %lf", get_Perimetr(length, width));
 
 	return 0;
 }
 
-double get_width(const double length, const double n) {
+double get_Width(const double length, const double n) {
 	return length * n;
 }
 
@@ -60,7 +60,7 @@ double get_Perimetr(const double length, const double width) {
 	return (length + width) * 2;
 }
 
-double get_input() {
+double get_Input() {
 	double value = 0.0;
 	scanf_s("%lf", &value);
 	return value;
