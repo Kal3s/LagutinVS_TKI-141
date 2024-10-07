@@ -8,7 +8,7 @@
 * @brief Считывает вещественное вещество.
 * @return Вещественное вещество.
 */
-double input();
+double input(void);
 
 /**
 * @brief Рассчитывает кинетическую энергию.
@@ -22,7 +22,7 @@ double get_energy(double massa, double skorost);
 * @brief Точка входа в программу.
 * @return Код ошибки.
 */
-int main() {
+int main(void) {
 	setlocale(LC_ALL, "Russian");
 	puts("Введите массу пули (в граммах): ");
 	double massa = input();
