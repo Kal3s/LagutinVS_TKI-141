@@ -16,7 +16,7 @@ double input(void);
 * @param skorost Скорость пули.
 * @return Кинетическую энергию.
 */
-double get_energy(double massa, double skorost);
+double get_energy(const double massa, const double skorost);
 
 /**
 * @brief Точка входа в программу.
