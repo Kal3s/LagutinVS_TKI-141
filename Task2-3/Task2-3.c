@@ -3,10 +3,24 @@
 #include <errno.h>
 #include <locale.h>
 
+/**
+* @brief Проверка введенных данных.
+* @return Возвращает значение, если выполнено успешно, или ошибку, если иначе.
+*/
 int input(void);
 
+/**
+* @brief Рассчитывает среднее значение и проверяет целое оно или нет.
+* @param pervoe Первое натуральное число.
+* @param vtoroe Второе натуральное число.
+* @return Возвращает 1 если целое, или 0 если не целое.
+*/
 double avg(const double pervoe, const double vtoroe);
 
+/**
+* @brief Точка входа в программу.
+* @return 0 в случае успеха.
+*/
 int main(void) {
 	setlocale(LC_ALL, "Russian");
 	puts("Введите первое натуральное число:");
