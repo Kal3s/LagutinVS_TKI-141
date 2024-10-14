@@ -15,7 +15,7 @@ int input(void);
 * @param vtoroe Второе натуральное число.
 * @return Возвращает 1 если целое, или 0 если не целое.
 */
-double avg(const double pervoe, const double vtoroe);
+double avg(const double first, const double second);
 
 /**
 * @brief Точка входа в программу.
@@ -24,10 +24,10 @@ double avg(const double pervoe, const double vtoroe);
 int main(void) {
 	setlocale(LC_ALL, "Russian");
 	puts("Введите первое натуральное число:");
-	double pervoe = input();
+	double first = input();
 	puts("Введите второе натуральное число:");
-	double vtoroe = input();
-	if (avg(pervoe, vtoroe) == 1) {
+	double second = input();
+	if (avg(first, second) == 1) {
 		printf("Среденее арифметическое целое");
 	}
 	else {
@@ -49,12 +49,10 @@ int input(void) {
 	return value;
 }
 
-double avg(const double pervoe, const double vtoroe) {
-	double avg = (pervoe + vtoroe) / 2;
+double avg(const double first, const double second) {
+	double avg = (first + second) / 2;
 	if ((int)avg == avg) {
 		return 1;
 	}
-	else {
-		return 0;
-	}
+	return 0;
 }
