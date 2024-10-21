@@ -12,13 +12,6 @@
 float get_equation(float x);
 
 /**
- * @brief Проверяет, можно ли вычислить функцию для заданного значения x.
- * @param x Значение x, которое требуется проверить.
- * @return true, если функцию можно вычислить для данного значения x, false в противном случае.
- */
-bool get_check_x(float x);
-
-/**
 * @brief Проверка на введенное значение
 * @return возрващает значение, если верное, иначе ошибку
 */
@@ -61,11 +54,6 @@ int main(void)
     }
 
     return 0;
-}
-
-bool get_check_x(float x)
-{
-    return x > 0;
 }
 
 void check_interval(const float x_start, const float x_final)
