@@ -9,7 +9,7 @@
 * @param x значение аргумента
 * @return Возвращает значения функции
 */
-float get_equation(float x);
+float get_equation(const float x);
 
 /**
 * @brief Проверка на введенное значение
@@ -69,8 +69,9 @@ void check_step(const float x_step)
 }
 
 float input(void) {
-    float input;
-    if (scanf_s("%f", &input) != 1)
+    float input = 0.0;
+    int result = scanf_s("%f", &input);
+    if (result != 1)
     {
         puts("Input error");
         exit(EXIT_FAILURE);
@@ -78,7 +79,7 @@ float input(void) {
     return input;
 }
 
-float get_equation(float x)
+float get_equation(const float x)
 {
     return 3 * sin(pow(x, 0.5)) + 0.39 * x - 3.8;
 }
