@@ -44,12 +44,7 @@ int main(void)
     float x = x_start;
 
     while (x <= x_final + DBL_EPSILON) {
-        if (!get_check_x(x_start)) {
-            printf("X not in function %.2f\n", x);
-        }
-        else {
-            printf("x = %f y = %f\n", x, get_equation(x));
-        }
+        printf("x = %f y = %f\n", x, get_equation(x));
         x = x + x_step;
     }
 
