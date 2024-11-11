@@ -95,7 +95,7 @@ size_t get_non_negative_int(void) {
 double get_sum(size_t count) {
 	double summ = 0;
 	double current = 1.0/12;
-	for (size_t i = 0; i < count; ++i) {
+	for (size_t i = 1; i < count; ++i) {
 		summ += current;
 		current *= get_reccurent(i);
 	}
@@ -104,7 +104,7 @@ double get_sum(size_t count) {
 }
 
 double get_reccurent(size_t k) {
-	return 1.0 / ((k + 3) * (k + 4));
+	return -1.0 / ((k + 3) * (k + 4));
 }
 
 double get_epsilon(void) {
