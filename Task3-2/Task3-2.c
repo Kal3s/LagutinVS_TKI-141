@@ -56,6 +56,10 @@ void check_epsilon(const double epsilon);
 */
 double get_sum_epsilon(const double epsilon);
 
+/**
+* @brief Точка входа в программу.
+* @return 0 В случае успеха
+*/
 int main(void) {
 	setlocale(LC_ALL, "Russian");
 	puts("Количество членов последовательности:");
@@ -90,10 +94,10 @@ size_t get_non_negative_int(void) {
 
 double get_sum(size_t count) {
 	double summ = 0;
-	double current = 0;
+	double current = 1.0/12;
 	for (size_t i = 0; i < count; ++i) {
-		current += get_reccurent(i);
-		summ = current;
+		summ += current;
+		current *= get_reccurent(i);
 	}
 
 	return summ;
@@ -112,13 +116,6 @@ double get_epsilon(void) {
 	return epsilon;
 }
 
-void check_epsilon(const double epsilon) {
-	if (epsilon >= 1 && epsilon <= 0) {
-		puts("Error of accuracy!");
-		exit(EXIT_FAILURE);
-	}
-}
-
 double get_double(void) {
 	double value = 0.0;
 	int result = scanf("%lf", &value); 
@@ -133,9 +130,9 @@ double get_double(void) {
 double get_sum_epsilon(const double epsilon) {
 	double summ = 0;
 	double current = 1.0/12;
-	for (size_t i = 0; i < epsilon + DBL_EPSILON; ++i) {
-		current += get_reccurent(i);
-		summ = current;
+	for (size_t i = 0; i < fabs(epsilon + DBL_EPSILON); ++i) {
+		summ += current;
+		current *= get_reccurent(i);
 	}
 	return summ;
 }
