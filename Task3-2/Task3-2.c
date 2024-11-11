@@ -93,9 +93,9 @@ size_t get_non_negative_int(void) {
 }
 
 double get_sum(size_t count) {
-	double summ = 0;
-	double current = 1.0/12;
-	for (size_t i = 1; i < count; ++i) {
+	double current = -1.0 / 12;
+	double summ = current;
+	for (size_t i = 0; i < count; ++i) {
 		summ += current;
 		current *= get_reccurent(i);
 	}
@@ -129,8 +129,8 @@ double get_double(void) {
 
 double get_sum_epsilon(const double epsilon) {
 	double summ = 0;
-	double current = 1.0/12;
-	for (size_t i = 0; i < fabs(epsilon + DBL_EPSILON); ++i) {
+	double current = -1.0/12;
+	for (size_t i = 0; fabs(current) < (epsilon + DBL_EPSILON); ++i) {
 		summ += current;
 		current *= get_reccurent(i);
 	}
