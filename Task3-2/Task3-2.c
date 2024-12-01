@@ -89,7 +89,7 @@ size_t get_non_negative_int(void) {
 		perror("Неверное введеное значение!");
 		exit(EXIT_FAILURE);
 	}
-	return value;
+	return (size_t)value;
 }
 
 double get_sum(size_t count) {
