@@ -113,6 +113,10 @@ void check_second_element(const size_t size_array);
 */
 void check_negative_element(const int low_value);
 
+/**
+* @brief Функция нахождения первого отрицательного элемента для задания 3
+* @return Индекс первого отрицательного элемента
+*/
 int find_first_negative_element(int* const arr, const size_t size_array);
 
 /**
