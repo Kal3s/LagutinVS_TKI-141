@@ -275,7 +275,7 @@ void check_second_element(const size_t size_array) {
 }
 
 void check_negative_element(const int low_value) {
-	if (low_value > 0) {
+	if (low_value >= 0) {
 		printf("Задание 3 не может быть выполнено!");
 		exit(EXIT_FAILURE);
 	}
