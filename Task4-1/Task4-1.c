@@ -113,6 +113,8 @@ void check_second_element(const size_t size_array);
 */
 void check_negative_element(const int low_value);
 
+int find_first_negative_element(int* const arr, const size_t size_array);
+
 /**
 * @brief Выбор исполняемой функции
 * @param fill_random - заполнение случайными числами
@@ -131,7 +133,7 @@ enum Task
 int main(void) {
 	setlocale(LC_ALL, "Russian");
 	srand(time(NULL));
-	puts("Введите команду: 1 - заполнение массива случайными цифрами; 2 - заполнение массива цифрами введеными пользователем:");
+	puts("Введите команду:");
 	int command = get_input();
 	puts("Введите размер массива");
 	size_t size_array = get_above_zero_value();
@@ -258,9 +260,10 @@ void task2(const int* arr, const size_t size_array, int const a) {
 void task3(int* arr, const size_t size_array, const int low_value) {
 	check_second_element(size_array);
 	check_negative_element(low_value);
-	int maximum_negative_element = low_value;
+	int index_first_negative = find_first_negative_element(arr, size_array);
+	int maximum_negative_element = 0;
 	for (size_t i = 0; i < size_array; i++)	{
-		if (arr[i] > maximum_negative_element && arr[i] < 0) {
+		if (arr[i] > arr[index_first_negative] && arr[i] < 0) {
 			maximum_negative_element = arr[i];
 		}
 	}
@@ -279,4 +282,12 @@ void check_negative_element(const int low_value) {
 		printf("Задание 3 не может быть выполнено!");
 		exit(EXIT_FAILURE);
 	}
+}
+
+int find_first_negative_element(int* const arr, const size_t size_array) {
+	int index = 0;
+	while (arr[index] >= 0) {
+		index++;
+	}
+	return index;
 }
