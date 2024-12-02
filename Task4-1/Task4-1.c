@@ -137,7 +137,7 @@ enum Task
 int main(void) {
 	setlocale(LC_ALL, "Russian");
 	srand(time(NULL));
-	puts("Введите команду:");
+	printf_s("Как Вы хотите заполнить массив ? \n%d - слуйчайный ввод, %d - ручной ввод\n", fill_random, fill_input);
 	int command = get_input();
 	puts("Введите размер массива");
 	size_t size_array = get_above_zero_value();
@@ -266,7 +266,7 @@ void task3(int* arr, const size_t size_array, const int low_value) {
 	check_negative_element(low_value);
 	int index_first_negative = find_first_negative_element(arr, size_array);
 	int maximum_negative_element = 0;
-	for (size_t i = 0; i < size_array; i++)	{
+	for (size_t i = index_first_negative + 1; i < size; ++i) {
 		if (arr[i] > arr[index_first_negative] && arr[i] < 0) {
 			maximum_negative_element = arr[i];
 		}
