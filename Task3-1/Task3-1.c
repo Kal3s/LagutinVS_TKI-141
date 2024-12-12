@@ -3,19 +3,20 @@
 #include <stdlib.h>
 #include <float.h>
 #include <stdbool.h>
+#include <locale.h>
 
 /**
 * @brief Функция считает нашу функцию
 * @param x значение аргумента
 * @return Возвращает значения функции
 */
-float get_equation(const float x);
+double get_equation(const double x);
 
 /**
 * @brief Проверка на введенное значение
 * @return возрващает значение, если верное, иначе ошибку
 */
-float input(void);
+double input(void);
 
 /**
  * @brief Проверяет корректность интервала.
@@ -23,14 +24,14 @@ float input(void);
  * @param x_final Конечное значение интервала.
  * @return Возвращет ошибку если интервал задан неверно
  */
-void check_interval(const float x_start, const float x_final);
+void check_interval(const double x_start, const double x_final);
 
 /**
 * @brief Проверяет коррекность шага
 * @param x_step Значение шага
 * @return Возвращает ошибку если шаг задан неверно
 */
-void check_step(const float x_step);
+void check_step(const double x_step);
 
 /**
 * @brief Точка входа
@@ -38,10 +39,16 @@ void check_step(const float x_step);
 */
 int main(void)
 {
-    const float x_start = input(), x_final = input(), x_step = input();
+    setlocale(LC_ALL, "Russian");
+    puts("Введите начальное значение интервала:");
+    const double x_start = input(); 
+    puts("Введите конечное значение интервала:");
+    const double x_final = input(); 
+    puts("Введите размер шага:");
+    const double x_step = input();
     check_interval(x_start, x_final);
     check_step(x_step);
-    float x = x_start;
+    double x = x_start;
 
     while (x <= x_final + DBL_EPSILON) {
         printf("x = %f y = %f\n", x, get_equation(x));
@@ -51,7 +58,7 @@ int main(void)
     return 0;
 }
 
-void check_interval(const float x_start, const float x_final)
+void check_interval(const double x_start, const double x_final)
 {
     if (x_final - x_start < DBL_EPSILON)
     {
@@ -59,7 +66,7 @@ void check_interval(const float x_start, const float x_final)
         exit(EXIT_FAILURE);
     }
 }
-void check_step(const float x_step)
+void check_step(const double x_step)
 {
     if (x_step <= DBL_EPSILON)
     {
@@ -68,9 +75,9 @@ void check_step(const float x_step)
     }
 }
 
-float input(void) {
-    float input = 0.0;
-    int result = scanf_s("%f", &input);
+double input(void) {
+    double input = 0.0;
+    int result = scanf_s("%lf", &input);
     if (result != 1)
     {
         puts("Input error");
@@ -79,7 +86,7 @@ float input(void) {
     return input;
 }
 
-float get_equation(const float x)
+double get_equation(const double x)
 {
     return 3 * sin(pow(x, 0.5)) + 0.39 * x - 3.8;
 }
