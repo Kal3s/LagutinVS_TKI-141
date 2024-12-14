@@ -44,12 +44,6 @@ double get_double(void);
 double get_epsilon(void);
 
 /**
-* @brief Проверяет е на то, что оно больше 0 и меньше 1.
-* @param epsilon Число е.
-*/
-void check_epsilon(const double epsilon);
-
-/**
 * @brief Считает сумму членов последовательности.
 * @param epsilon Число е.
 * @return Возвращает сумму членов последовательности.
@@ -93,7 +87,7 @@ size_t get_non_negative_int(void) {
 }
 
 double get_sum(size_t count) {
-	double current = -1.0 / 12;
+	double current = 1.0 / 12;
 	double summ = current;
 	for (size_t i = 0; i < count; ++i) {
 		current *= get_reccurent(i);
@@ -104,7 +98,7 @@ double get_sum(size_t count) {
 }
 
 double get_reccurent(size_t k) {
-	return -1.0 / ((k + 3) * (k + 4));
+	return ( - 1.0) / ((k + 3) * (k + 4));
 }
 
 double get_epsilon(void) {
@@ -129,7 +123,7 @@ double get_double(void) {
 
 double get_sum_epsilon(const double epsilon) {
 	double summ = 0;
-	double current = -1.0/12;
+	double current = 1.0/12;
 	for (size_t i = 0; fabs(current) > epsilon - DBL_EPSILON; ++i) {
 		summ += current;
 		current *= get_reccurent(i);
