@@ -104,7 +104,7 @@ double get_reccurent(size_t k) {
 double get_epsilon(void) {
 	double epsilon = get_double();
 	if (epsilon <= 0.0) {
-		puts("Error input!");
+		puts("Неверное введеное значение!");
 		exit(EXIT_FAILURE);
 	};
 	return epsilon;
