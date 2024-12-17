@@ -254,7 +254,7 @@ int task1(const int* arr, const size_t size_array) {
 }
 
 void task2(const int* arr, const size_t size_array, int const a) {
-	for (size_t i = 0; i < size_array - 1; i++)	{
+	for (int i = 0; i <= size_array - 1; i++)	{
 		if (arr[i] > a)	{
 			printf("%d\n", i);
 		}
@@ -266,7 +266,7 @@ void task3(int* arr, const size_t size_array, const int low_value) {
 	check_negative_element(low_value);
 	int index_first_negative = find_first_negative_element(arr, size_array);
 	int maximum_negative_element = 0;
-	for (size_t i = index_first_negative + 1; i < size; ++i) {
+	for (size_t i = index_first_negative + 1; i < size_array; ++i) {
 		if (arr[i] > arr[index_first_negative] && arr[i] < 0) {
 			maximum_negative_element = arr[i];
 		}
